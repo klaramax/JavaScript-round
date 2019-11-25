@@ -1,0 +1,31 @@
+<script>
+
+//Jak si možná pamatujete, v Pythonu funkce round zaokrouhluje k nejbližšímu sudému číslu, pokud je desetinná část čísla přesně 0.5. JavaScriptová funkce Math.round naopak provádí zaokrouhlování způsobem, na který jste zvyklí, tedy pro 0.5 vždy nahoru. Někomu by se po po Pythonovském zaokrouhlování mohlo stýskat. Napište funkci round, která zaokrouhluje čísla na celé jednotky podle následujících pravidel.
+
+//Pokud je desetinná část menší než 0.5, zaokrouhlujeme dolů.
+//Pokud je desetinná část větší než 0.5, zaokrouhlujeme nahoru.
+//Pokud je desetinná část přesně rovna 0.5, zaokrouhlujeme k sudému číslu. Tedy například 3.5 se zaokrouhlí na 4, naopak 2.5 se zaokrouhlí na 2.
+
+let cislo = parseFloat(prompt('Zadej cislo:'));
+
+const zaokrouhli = (cislo) => {
+ let cela_cast = parseInt(cislo);
+ let des_cast = cislo - cela_cast;
+
+ if (des_cast < 0.5) {
+   return cela_cast;
+   }
+ else if (des_cast > 0.5) {
+   return cela_cast + 1;
+   }
+ else if (cela_cast % 2 === 0) {      // cislo je sude
+   return cela_cast;
+   }
+ else {
+   return cela_cast + 1;
+   }
+};
+
+alert('Zaokrouhleno na ' + zaokrouhli(cislo));
+
+</script>
